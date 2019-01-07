@@ -1,18 +1,24 @@
 
 # SOBRE
 
-Compilação de classe java
-Neste exemplo o diretório _class_ já existe, quando for executar o exemplo o seu conteúdo pode ser apagado para a criação de arquivos ser observada.
-Mesmo que os arquivos existam, eles serão substituídos.
+Compilação de classe java.
+
 ___
 
-Criamos o diretório de _output_
+Criamos o diretório de _output_.
 
 ```shell
 mkdir class
 ```
 
-Executamos o comando _javac_ passando o caminho até a classe e o diretório de saída
+Neste exemplo o diretório _class_ já existe. 
+Quando for executar o exemplo o conteúdo do diretório _class_ pode ser apagado para a criação de novos arquivos _class_.
+Mesmo que os arquivos existam, eles serão substituídos.
+
+
+
+
+Executamos o comando _javac_ passando o caminho até a classe _(src/org/naka/somePackage/SomeClass.java)_ e o diretório de saída _(-d class)_
 
 ```shell 
 javac -d class src/org/naka/somePackage/SomeClass.java
@@ -42,13 +48,15 @@ src/org/naka/sample/Teste.java:9: error: cannot find symbol
 2 errors
 ```
 
-Não funciona. No classpath estamos dizendo que o diretório a ser considerado deve ser apenas o _somePackage_, sendo que no no import feito, o path é:
+Não funciona. No classpath estamos dizendo que o diretório a ser considerado deve ser apenas o _somePackage_, sendo que no import feito, o path é:
 
 ```java
 import org.naka.somePackage.SomeClass;
 ```
 
-Sendo assim, precisamos apenas definir o diretório _class_ no _classpath_ para podermos respeitar o _path_ informado na classe _Teste.java_ 
+Sendo assim, precisamos apenas definir o diretório _class_ no _classpath_ para podermos respeitar o _path_ informado na classe _Teste.java_.
+
+Passando apenas o diretório _class_ no _classpath_ a navegação pode ser feita a partir do diretório  _class_ e não a partir de _somePackage_ como haviamos configurado antes.
 
 ```shell
 javac -d class -cp class src/org/naka/sample/Teste.java
